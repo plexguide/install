@@ -10,6 +10,10 @@ $1
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
 }
+
+common_confirm() {
+  read -p 'Confirm Information | Press [Enter] ' typed </dev/tty
+}
 # EXECUTION ####################################################################
 mkdir -p /pg/tmp/install /pg/var
 rm -rf /pg/tmp/install/
