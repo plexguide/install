@@ -78,4 +78,8 @@ case $typed in
     * ) pgupdate_start && exit ;;
 esac
 }
+
+cp -f /pg/tmp/install/pgupdate /bin/
+chmod 0755 /bin/pgupdate
+chown 1000:1000 /bin/pgupdate
 pgupdate_start
