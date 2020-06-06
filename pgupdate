@@ -28,6 +28,7 @@ cat << "EOF"
 │ Deiteq, YasQueen84 & JasMarie       │
 └─────────────────────────────────────┘
 EOF
+exit
 }
 
 ppupdate_start () {
