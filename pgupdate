@@ -63,7 +63,7 @@ common_number() {
 }
 
 # EXECUTION ####################################################################
-common_message "🚀 PG Install Interface" "💾 Type a PG Version to Install
+common_message "🚀 PG Update Interface" "💾 Type a Version
 
 $versions
 
