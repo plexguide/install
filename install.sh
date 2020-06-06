@@ -17,8 +17,7 @@ common_number() {
   read -p '↘️  Type Selection | Press [Enter]: ' typed < /dev/tty
 }
 ################################################################################
-common_message "🚀 PG Install Interface" "
-💾 Type a PG Version to Install
+common_message "🚀 PG Install Interface" "💾 Type a PG Version to Install
 
 alpha
 
