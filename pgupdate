@@ -34,6 +34,11 @@ exit
 pgupdate_start () {
 rm -rf /pg/tmp/install/update
 git clone -b v1 --single-branch https://github.com/plexguide/install.git /pg/tmp/install/update
+
+cp -f /pg/tmp/install/update/pgupdate /bin/
+chmod 0755 /bin/pgupdate
+chown 1000:1000 /bin/pgupdate
+
 fmt -w 79 /pg/tmp/install/update/versions > /pg/tmp/install/update/wrap
 versions=$(cat /pg/tmp/install/update/wrap)
 
@@ -79,7 +84,4 @@ case $typed in
 esac
 }
 
-cp -f /pg/tmp/install/update/pgupdate /bin/
-chmod 0755 /bin/pgupdate
-chown 1000:1000 /bin/pgupdate
 pgupdate_start
