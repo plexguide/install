@@ -31,7 +31,7 @@ EOF
 exit
 }
 
-ppupdate_start () {
+pgupdate_start () {
 rm -rf /pg/tmp/install/update
 git clone -b v1 --single-branch https://github.com/plexguide/install.git /pg/tmp/install/update
 fmt -w 79 /pg/tmp/install/update/versions > /pg/tmp/install/update/wrap
