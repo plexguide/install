@@ -28,8 +28,8 @@ common_fcreate_silent /pg/var
 rm -rf /pg/tmp/install/*
 git clone -b v1 --single-branch https://github.com/plexguide/install.git /pg/tmp/install
 cp /pg/tmp/install/pgupdate /bin/
-chmod 0755 /pg/pgupdate
-chown 1000:1000 /pgupdate
+chmod 0755 /bin/pgupdate
+chown 1000:1000 /bin/pgupdate
 
 echo ""
 cat << "EOF"
