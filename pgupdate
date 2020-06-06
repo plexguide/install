@@ -63,8 +63,7 @@ common_number() {
 }
 
 # EXECUTION ####################################################################
-common_message "🚀 PG Update Interface" "💾 Type a Version
-
+common_message "🚀 PG Update Interface - 💾 Type a Version to Update" "
 $versions
 
 [Z] Exit Interface"
