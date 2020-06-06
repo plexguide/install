@@ -1,5 +1,8 @@
 #!/bin/bash
 ############# https://github.com/plexguide/PlexGuide.com/graphs/contributors ###
+git clone -b v1 --single-branch https://github.com/plexguide/install.git /pg/tmp/install
+fmt -w 79 /pg/tmp/install/versions > /pg/tmp/install/wrap
+versions=$(cat /pg/tmp/install/wrap)
 
 # FUNCTIONS ####################################################################
 common_message() {
@@ -18,7 +21,7 @@ common_number() {
 }
 common_message "🚀 PG Install Interface" "💾 Type a PG Version to Install
 
-alpha bravo
+$versions
 
 [Z] Exit Interface"
 common_number
