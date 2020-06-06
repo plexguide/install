@@ -1,6 +1,9 @@
 #!/bin/bash
 ############# https://github.com/plexguide/PlexGuide.com/graphs/contributors ###
-git clone -b v1 --single-branch https://github.com/plexguide/install.git /pg/tmp/install
+mkdir -p /pg/tmp/install/update
+rm -rf /pg/tmp/install/update/*
+git clone -b v1 --single-branch https://github.com/plexguide/install.git /pg/tmp/install/update
+mv -f /pg/tmp/install/update /pg/tmp/install/*
 fmt -w 79 /pg/tmp/install/versions > /pg/tmp/install/wrap
 versions=$(cat /pg/tmp/install/wrap)
 
