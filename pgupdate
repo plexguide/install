@@ -79,7 +79,7 @@ case $typed in
 esac
 }
 
-cp -f /pg/tmp/install/pgupdate /bin/
+cp -f /pg/tmp/install/update/pgupdate /bin/
 chmod 0755 /bin/pgupdate
 chown 1000:1000 /bin/pgupdate
 pgupdate_start
