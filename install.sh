@@ -19,7 +19,7 @@ common_number() {
 ################################################################################
 common_message "🚀 PG Install Interface" "💾 Type a PG Version to Install
 
-alpha
+alpha bravo
 
 [Z] Exit Interface"
 common_number
