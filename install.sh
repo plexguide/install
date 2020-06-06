@@ -18,7 +18,7 @@ common_confirm() {
 mkdir -p /pg/tmp/install /pg/var
 rm -rf /pg/tmp/install/
 git clone -b v1 --single-branch https://github.com/plexguide/install.git /pg/tmp/install
-cp /pg/tmp/install/pgupdate /bin/bash/
+cp /pg/tmp/install/pgupdate /bin/
 
 common_header "🚀 Initial Install Complete - Type [pgupdate] to start!"
 common_confirm
