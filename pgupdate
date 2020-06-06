@@ -71,10 +71,9 @@ $versions
 common_number
 
 common_header "💾 Install PG Version - $typed? [y/n]"
+common_number
 
 case $typed in
-    # y ) apps_install && apps_interface_sub && exit ;;
-    # Y ) apps_install && apps_interface_sub && exit ;;
     N ) pgupdate_ending && exit ;;
     n ) pgupdate_ending && exit ;;
     * ) pgupdate_start && exit ;;
