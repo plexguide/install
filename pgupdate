@@ -1,6 +1,5 @@
 #!/bin/bash
 ############# https://github.com/plexguide/PlexGuide.com/graphs/contributors ###
-a=0
 pgupdate_ending () {
 echo ""
 cat << "EOF"
@@ -102,10 +101,8 @@ unzip "/tmp/${install_version}.zip" -d /tmp
 bash "/tmp/PlexGuide.com-${install_version}/mods/install/main.sh"
 
 sudo wget -nc https://raw.githubusercontent.com/plexguide/PlexGuide.com/alpha/mods/install/main.sh -O- | sudo bash
-a=1
 exit && exit
 
 }
 
-if [[ "$a" != "1" ]]; then
-pgupdate_start; fi 
+pgupdate_start
