@@ -67,6 +67,9 @@ common_number() {
   read -p '↘️  Type Selection | Press [Enter]: ' typed < /dev/tty
 }
 
+common_confirm() {
+  read -p 'Confirm Information | Press [Enter] ' typed </dev/tty
+}
 # EXECUTION ####################################################################
 common_message "🚀 PG Update Interface - 💾 Type a Version to Update" "$versions
 
