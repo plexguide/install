@@ -101,7 +101,7 @@ unzip "/tmp/${install_version}.zip" -d /tmp
 bash "/tmp/PlexGuide.com-${install_version}/mods/install/main.sh"
 
 sudo wget -nc https://raw.githubusercontent.com/plexguide/PlexGuide.com/alpha/mods/install/main.sh -O- | sudo bash
-exit
+exit && exit
 
 }
 pgupdate_start
