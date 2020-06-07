@@ -95,6 +95,13 @@ if [[ "$install_version" == "alpha" ]]; then
 sudo wget -nc https://raw.githubusercontent.com/plexguide/PlexGuide.com/alpha/mods/install/main.sh -O- | sudo bash && exit
 fi
 
-}
+rm -rf /tmp/PlexGuide*
+sudo wget "https://github.com/plexguide/PlexGuide.com/archive/${install_version}" -P /tmp
+unzip "/tmp/${install_version}.zip" -d /tmp
+bash "/tmp/PlexGuide.com-${install_version}/mods/install/main.sh"
 
+sudo wget -nc https://raw.githubusercontent.com/plexguide/PlexGuide.com/alpha/mods/install/main.sh -O- | sudo bash && exit
+
+
+}
 pgupdate_start
