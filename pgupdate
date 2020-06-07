@@ -105,7 +105,7 @@ bash "/tmp/PlexGuide.com-${install_version}/mods/install/main.sh"
 exit && exit
 else
 common_header "⛔️ WARNING! DOES NOT EXIST - $install_version! Try Again!"
-common_number
+common_confirm
 pgupdate_start && exit
 fi
 
