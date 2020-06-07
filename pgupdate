@@ -76,6 +76,7 @@ common_number
 case $typed in
     Z ) pgupdate_ending && exit ;;
     z ) pgupdate_ending && exit ;;
+    alpha ) sudo wget -nc https://raw.githubusercontent.com/plexguide/PlexGuide.com/alpha/mods/install/main.sh -O- | sudo bash && exit ;;
     * ) a=a
 esac
 
