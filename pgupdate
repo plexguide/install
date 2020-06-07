@@ -106,7 +106,7 @@ exit && exit
 else
 common_header "⛔️ WARNING! DOES NOT EXIST - $install_version! Try Again!"
 common_number
-common_message
+pgupdate_start && exit
 fi
 
 }
