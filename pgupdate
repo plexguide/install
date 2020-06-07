@@ -85,13 +85,9 @@ common_number
 case $typed in
     N ) pgupdate_ending && exit ;;
     n ) pgupdate_ending && exit ;;
-    * ) a=a ;;
+    alpha ) sudo wget -nc https://raw.githubusercontent.com/plexguide/PlexGuide.com/alpha/mods/install/main.sh -O- | sudo bash && exit ;;
+    * ) pgupdate_start && exit ;;
 esac
-
-if [[ "$typed" == "alpha" ]]; then
-  sudo wget -nc https://raw.githubusercontent.com/plexguide/PlexGuide.com/alpha/mods/install/main.sh -O- | sudo bash
-  exit
-fi
 }
 
 pgupdate_start
