@@ -92,7 +92,7 @@ case $typed in
 esac
 
 if [[ "$install_version" == "alpha" ]]; then
-sudo wget -nc https://raw.githubusercontent.com/plexguide/PlexGuide.com/alpha/mods/install/main.sh -O- | sudo bash && exit ;;
+sudo wget -nc https://raw.githubusercontent.com/plexguide/PlexGuide.com/alpha/mods/install/main.sh -O- | sudo bash && exit
 fi
 
 }
