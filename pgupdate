@@ -100,8 +100,8 @@ sudo wget "https://github.com/plexguide/PlexGuide.com/archive/${install_version}
 unzip "/tmp/${install_version}.zip" -d /tmp
 bash "/tmp/PlexGuide.com-${install_version}/mods/install/main.sh"
 
-sudo wget -nc https://raw.githubusercontent.com/plexguide/PlexGuide.com/alpha/mods/install/main.sh -O- | sudo bash && exit
-
+sudo wget -nc https://raw.githubusercontent.com/plexguide/PlexGuide.com/alpha/mods/install/main.sh -O- | sudo bash
+exit
 
 }
 pgupdate_start
