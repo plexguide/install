@@ -68,11 +68,16 @@ common_number() {
 }
 
 # EXECUTION ####################################################################
-common_message "🚀 PG Update Interface - 💾 Type a Version to Update" "
-$versions
+common_message "🚀 PG Update Interface - 💾 Type a Version to Update" "$versions
 
 [Z] Exit Interface"
 common_number
+
+case $typed in
+    Z ) pgupdate_ending && exit ;;
+    z ) pgupdate_ending && exit ;;
+    * ) a=a
+esac
 
 common_header "💾 Install PG Version - $typed? [y/n]"
 common_number
