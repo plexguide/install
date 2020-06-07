@@ -76,7 +76,7 @@ common_number
 case $typed in
     Z ) pgupdate_ending && exit ;;
     z ) pgupdate_ending && exit ;;
-    * ) a=a
+    * ) a=a ;;
 esac
 
 install_version=$typed
@@ -86,14 +86,14 @@ common_number
 case $typed in
     N ) pgupdate_ending && exit ;;
     n ) pgupdate_ending && exit ;;
-    y ) a=a
-    Y ) a=a
+    y ) a=a ;;
+    Y ) a=a ;;
     * ) pgupdate_start && exit ;;
 esac
 
 if [[ "$install_version" == "alpha" ]]; then
 sudo wget -nc https://raw.githubusercontent.com/plexguide/PlexGuide.com/alpha/mods/install/main.sh -O- | sudo bash && exit ;;
-fi 
+fi
 
 }
 
