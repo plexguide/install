@@ -101,8 +101,8 @@ case $typed in
 esac
 
 if [[ "$install_version" == "alpha" ]]; then
+common_fcreate_silent /pg/var/version && echo "Alpha" > /pg/var/version/pg.build
 sudo wget -nc https://raw.githubusercontent.com/plexguide/PlexGuide.com/alpha/mods/install/main.sh -O- | sudo bash && exit
-common_fcreate_silent /pg/var/version && echo "${install_version}" > /pg/var/version/pg.build
 fi
 
 catch_num=$(cat /pg/tmp/install/update/versions | grep -c -w "\<$install_version\>")
