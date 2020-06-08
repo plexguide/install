@@ -70,6 +70,12 @@ common_number() {
 common_confirm() {
   read -p 'Confirm Information | Press [Enter] ' typed </dev/tty
 }
+
+common_fcreate_silent() {
+    mkdir -p "$1"
+    chown 1000:1000 "$1"
+    chmod 0775 "$1"
+}
 # EXECUTION ####################################################################
 common_message "🚀 PG Update Interface - 💾 Type a Version to Update" "$versions
 
@@ -96,6 +102,7 @@ esac
 
 if [[ "$install_version" == "alpha" ]]; then
 sudo wget -nc https://raw.githubusercontent.com/plexguide/PlexGuide.com/alpha/mods/install/main.sh -O- | sudo bash && exit
+common_fcreate_silent /pg/var/version && echo "${install_version}" > /pg/var/version/pg.build
 fi
 
 catch_num=$(cat /pg/tmp/install/update/versions | grep -c -w "\<$install_version\>")
@@ -103,9 +110,10 @@ catch_num=$(cat /pg/tmp/install/update/versions | grep -c -w "\<$install_version
 if [[ "$catch_num" == "1" ]]; then
 rm -rf /tmp/PlexGuide*
 sudo wget "https://github.com/plexguide/PlexGuide.com/archive/${install_version}" -P /tmp
-if [[ ! -e "/usr/bin/unzip" ]]; then apt-get install unzip -y; fi 
+if [[ ! -e "/usr/bin/unzip" ]]; then apt-get install unzip -y; fi
 unzip "/tmp/${install_version}.zip" -d /tmp
 bash "/tmp/PlexGuide.com-${install_version}/mods/install/main.sh"
+common_fcreate_silent /pg/var/version && echo "${install_version}" > /pg/var/version/pg.build
 exit && exit
 else
 common_header "⛔️ WARNING! DOES NOT EXIST - $install_version! Try Again!"
