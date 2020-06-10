@@ -76,6 +76,43 @@ common_fcreate_silent() {
     chown 1000:1000 "$1"
     chmod 0775 "$1"
 }
+# PREUSER EXECUTION ############################################################
+common_fcreate_silent /pg/var
+if [[ $(grep "1000" /etc/passwd | cut -d: -f1 | awk '{print $1}') && ! -e "/pg/var/user.check" ]]; then
+usermod -aG sudo $(grep "1000" /etc/passwd | cut -d: -f1 | awk '{print $1}')
+
+sudo usermod -s /bin/bash $(grep "1000" /etc/passwd | cut -d: -f1 | awk '{print $1}')
+sudo usermod -aG video $(grep "1000" /etc/passwd | cut -d: -f1 | awk '{print $1}')
+sudo usermod -aG docker $(grep "1000" /etc/passwd | cut -d: -f1 | awk '{print $1}')
+
+common_header '✅ PASSED ! User UID Found" $(grep "1000" /etc/passwd | cut -d: -f1 | awk '{print $1}')'
+touch /pg/var/user.check
+common_confirm
+else
+common_message "🚀 PG Update Interface - 💾 Add User" "$versions
+
+⌛ INFO ! Only lowercase and dont empty parts
+⌛ INFO ! Enter a password (8+ chars)
+"
+
+read -p "Enter username : " username
+read -s -p "Enter password : " password
+
+egrep "^$username" /etc/passwd >/dev/null
+        pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
+        useradd -m -p $pass $username
+        usermod -aG sudo $username
+        sudo usermod -s /bin/bash $username
+        usermod -aG video $username
+usermod -aG docker $username
+
+common_message "🚀 PG Update Interface - 💾 Add User" "✅ PASSED !
+
+Username: $Username
+Password: $Password"
+touch /pg/var/user.check
+common_confirm
+fi
 # EXECUTION ####################################################################
 common_message "🚀 PG Update Interface - 💾 Type a Version to Update" "$versions
 
