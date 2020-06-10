@@ -77,8 +77,9 @@ common_fcreate_silent() {
     chmod 0775 "$1"
 }
 # PREUSER EXECUTION ############################################################
+if [[ ! -e "/pg/var/user.check" ]]; then
 common_fcreate_silent /pg/var
-if [[ $(grep "1000" /etc/passwd | cut -d: -f1 | awk '{print $1}') && ! -e "/pg/var/user.check" ]]; then
+if [[ $(grep "1000" /etc/passwd | cut -d: -f1 | awk '{print $1}') ]]; then
 usermod -aG sudo $(grep "1000" /etc/passwd | cut -d: -f1 | awk '{print $1}')
 
 sudo usermod -s /bin/bash $(grep "1000" /etc/passwd | cut -d: -f1 | awk '{print $1}')
@@ -116,7 +117,7 @@ Username: $Username
 Password: $Password"
 touch /pg/var/user.check
 common_confirm
-fi
+fi; fi
 # EXECUTION ####################################################################
 common_message "🚀 PG Update Interface - 💾 Type a Version to Update" "$versions
 
