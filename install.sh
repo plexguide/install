@@ -12,7 +12,7 @@ EOF
 }
 
 common_confirm() {
-  read -p 'Confirm Information | Press [Enter] ' typed </dev/tty
+  read -p 'Confirm Information | Press [ENTER] ' typed </dev/tty
 }
 
 common_fcreate_silent() {
