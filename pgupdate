@@ -155,8 +155,8 @@ rm -rf /tmp/PlexGuide*
 sudo wget "https://github.com/plexguide/PlexGuide.com/archive/${install_version}.zip" -P /tmp
 if [[ ! -e "/usr/bin/unzip" ]]; then apt-get install unzip -y; fi
 unzip "/tmp/${install_version}.zip" -d /tmp
-bash "/tmp/PlexGuide.com-${install_version}/mods/install/main.sh"
 common_fcreate_silent /pg/var/version && echo "${install_version}" > /pg/var/version/pg.build
+bash "/tmp/PlexGuide.com-${install_version}/mods/install/main.sh"
 exit && exit
 else
 common_header "⛔️ WARNING! DOES NOT EXIST - $install_version! Try Again!"
